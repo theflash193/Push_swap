@@ -15,6 +15,8 @@ void	ft_piledelone();
 void	ft_pilefree(void *content, int content_size);
 void	ft_pilepushback(t_pile **pile, t_pile *elem);
 void	ft_print(t_pile **pile);
+void	ft_reverse(t_pile **pile);
+void	ft_rreverse(t_pile **pile)
 
 /*
 *** Pile basic function
@@ -22,9 +24,9 @@ void	ft_print(t_pile **pile);
 int		ft_isempty(t_pile const **pile);
 void	ft_swap(t_pile *a, t_pile *b);
 void	ft_push(t_pile **pile, t_pile *elem);
-void	ft_pop(t_pile **pile);
+t_pile	*ft_pop(t_pile **pile);
 t_pile	ft_first(t_pile const *pile);
-int		ft_plsize(t_pile **pile);
+size_t	ft_plsize(t_pile **pile);
 
 /*
 *** Pile operator
