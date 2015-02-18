@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:18:26 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/17 14:56:38 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/18 13:21:44 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,39 @@
 void	ft_print(t_pile **pile)
 {
 	t_pile	*tmp;
+	int	*i;
 
 	ft_putendl("Pile (Tete): ");
 	tmp = *pile;
-	while ()
+	while (tmp)
+	{
+		i = tmp->content;
+		ft_putnbr(*i);
+		ft_putstr(" ");
+		tmp = tmp->prev;
+	}
+	ft_putendl("");
 }
 
 int		ft_isempty(t_pile const **pile)
 {
-	return (!ft_plsize(pile) ? 0 : 1);
+	return (!ft_plsize((t_pile **)pile) ? 0 : 1);
 }
 
-void	ft_swap(t_pile *pile)
+void	ft_swap(t_pile **pile)
 {
-	t_pile *tmp;
+	t_pile *first;
+	t_pile	*second;
+	int		tmp;
+	int		i;
 
-	tmp = pile;
+	if (ft_plsize(pile) < 2)
+		return ;
+	first = *pile;
+	second = first->prev;
+	tmp = first->content;
+	first->content = second->content;
+	second->content = tmp;
 }
 
 void	ft_push(t_pile **pile, t_pile *elem)

@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:18:39 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/17 16:30:06 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/18 10:47:40 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,37 @@ int		ft_plsize(t_pile **pile)
 
 void	ft_reverse(t_pile **pile)
 {
-	t_pile	*tmp;
-	t_pile	*tmp2;
-	t_pile	*tmp3;
+	t_list	*first;
+	t_list	*second;
+	t_list	*last;
 
 	if (ft_isempty(pile) || ft_plsize(pile) == 1)
 		return ;
-	tmp = *pile;
-	tmp2 = *pile->prev;
-	while (tmp->prev)
-		tmp = tmp->prev;
-
+	first = *pile;
+	second = first->prev;
+	last = first;
+	while (last)
+		last = last->prev;
+	last->prev = first;
+	first->prev = NULL;
+	*pile = second;
 }
 
 void	ft_rreverse(t_pile **pile)
 {
-	t_pile	*tmp;
-	t_pile	*tmp2;
+	t_pile	*before_last;
+	t_pile	*last;
 
 	if (ft_isempty(a) || ft_plsize(a) == 1)
 		return ;
-	tmp = *pile;
-	tmp2 = tmp;
-	while (tmp)
-		tmp = tmp->prev;
-	tmp2 = 
+	last = *pile;
+	while (last)
+	{
+		before_last = last;
+		last = last->prev;
+	}
+	before_last = NULL;
+	last->prev = *pile->prev;
+	last = *pile;
+	*pile = last;
 }

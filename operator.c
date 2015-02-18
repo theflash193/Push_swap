@@ -6,11 +6,11 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:15:37 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/17 15:10:49 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/18 11:27:33 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushwap.h"
+#include "pushswap.h"
 
 void	sa(t_pile **a, t_pile *list_operator)
 {
@@ -28,8 +28,8 @@ void	sb(t_pile **b ,t_pile *list_operator)
 void	ss(t_pile **a, t_pile **b, t_pile *list_operator)
 {
 	(void)list_operator;
-	sa(a);
-	sb(b);
+	sa(a, list_operator);
+	sb(b, list_operator);
 }
 
 void	pa(t_pile *a, t_pile *b, t_pile *list_operator)

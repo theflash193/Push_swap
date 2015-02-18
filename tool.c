@@ -6,13 +6,13 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:18:11 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/17 13:18:17 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/18 13:02:36 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_pile	*ft_pl_elem(void *content, int content_size)
+t_pile	*ft_pl_elem(void *content, size_t content_size)
 {
 	t_pile	*ret;
 
@@ -28,7 +28,7 @@ t_pile	*ft_pl_elem(void *content, int content_size)
 	return (ret);
 }
 
-void	ft_piledel()
+void	ft_piledel(t_pile **alst, void (*del)(void *, size_t))
 {
 	t_pile *tmp;
 	t_pile *tmp2;
@@ -47,11 +47,13 @@ void	ft_piledelone(t_pile **alst, void (*del)(void *, size_t))
 {
 	(*del)((*alst)->content, (*alst)->content_size);
 	free(*alst);
-	*alst = NULL
+	*alst = NULL;
 }
 
-void	ft_pilefree(void *content, int content_size)
+void	ft_pilefree(void *content, size_t content_size)
 {
+	(void)content;
+	(void)content_size;
 	content = NULL;
 	content_size = 0;
 }
@@ -60,9 +62,9 @@ void	ft_pilepushback(t_pile **pile, t_pile *elem)
 {
 	t_pile	*tmp;
 
-	tmp = *alst;
-	if (!*alst)
-		*alst = elem;
+	tmp = *pile;
+	if (!*pile)
+		*pile = elem;
 	else
 	{
 		while (tmp->prev)

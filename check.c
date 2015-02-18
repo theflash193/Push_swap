@@ -6,13 +6,13 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:15:25 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/17 13:15:27 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/18 11:08:12 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	ft_error()
+void	ft_error()
 {
 	ft_putendl(/*error*/);
 }
