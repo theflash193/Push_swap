@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 15:10:43 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 15:29:44 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	pushswap(char **argv)
 	a = NULL;
 	b = NULL;
 	list_operator = NULL;
+	(void)list_operator;
+	(void)b;
 	parsing(argv, &a);
-	algo(a, b, list_operator);
+	// algo(a, b, list_operator);
 }

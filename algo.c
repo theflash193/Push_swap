@@ -6,20 +6,20 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 15:08:54 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 15:25:43 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static	int	ft_min(t_pile *pile, int size, int min)
+static	int	ft_min(t_pile *pile, int min)
 {
 	t_pile	*tmp;
 	int		min2;
 	int		iter;
 	int		i;
 
-	tmp = *pile->prev;
+	tmp = pile->prev;
 	i = 1;
 	min2 = min;
 	while (tmp) 
@@ -41,12 +41,12 @@ void		algo(t_pile *a, t_pile *b, t_list *list_operator)
 	int	iter;
 
 	(void)list_operator;
-	while (size = ft_plsize(&a))
+	while (ft_isempty(&a))
 	{
-		iter = ft_min(a, size, a->content);
+		iter = ft_min(a, a->content);
 		while (iter--)
-			ra(a, list_operator);
-		pb(&a, &b, list_operator);
+			ra(&a, list_operator);
+		pb(a, b, list_operator);
 	}
 	size = ft_plsize(&b);
 	while (size--)

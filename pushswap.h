@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 15:10:21 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 15:22:32 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ size_t	ft_plsize(t_pile **pile);
 void	sa(t_pile **a, t_list *list_operator);
 void	sb(t_pile **b, t_list *list_operator);
 void	ss(t_pile **a, t_pile **b, t_list *list_operator);
-void	pa(t_pile *a, t_pile *b, t_list *list_operator);
+void	pa(t_pile **a, t_pile **b, t_list *list_operator);
 void	pb(t_pile *b, t_pile *a, t_list *list_operator);
 void	ra(t_pile **a, t_list *list_operator);
 void	rb(t_pile **b, t_list *list_operator);
