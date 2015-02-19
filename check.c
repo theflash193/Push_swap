@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:15:25 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/18 11:08:12 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 14:20:21 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_error()
 {
-	ft_putendl(/*error*/);
+	ft_putendl("Error");
 }
 
-static long	ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	unsigned long	result;
 	int				i;
@@ -45,26 +45,53 @@ static int	check_digit(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]) || str[i] != '+' || str[i] != '-')
+		if (!ft_isdigit(str[i]) && str[i] != '+' && str[i] != '-')
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	check(char const **argv)
+static	int	doublon(char **av)
 {
-	int	i;
-	long l;
+	int		i;
+	int		j;
 
-	i = 0;
+	if ((ft_tablen(av) - 1) == 1)
+		return (0);
+		i = 1;
+	while (av[i])
+	{
+		j = i + 1;
+		while (av[j])
+		{
+			if (ft_strcmp(av[i], av[j]) == 0 || (ispositif(av[i], av[j]) == 0))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	check(char **argv)
+{
+	int		i;
+	long 	l;
+	int		ret;
+
+	i = 1;
+	if (doublon(argv))
+		return (1);
 	while (argv[i])
 	{
+		ft_putendl(argv[i]);
 		if (!check_digit(argv[i]))
-			return (0);
+			return (1);
 		l = ft_atol(argv[i]);
-		if (l > -32767 && l < +32767)
-			return (0);
+		if (!(ret = (l > -32767 && l < +32767)))
+			return (1);
+		i++;
 	}
-	return (1);
+	return (0);
 }

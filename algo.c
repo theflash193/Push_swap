@@ -6,13 +6,13 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/18 11:18:10 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 10:29:29 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	algo(t_pile *a, t_pile *b, t_pile *list_operator)
+void	algo(t_pile *a, t_pile *b, t_list *list_operator)
 {
 	(void)a;
 	(void)b;

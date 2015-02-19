@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:18:26 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/18 13:21:44 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 10:43:26 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,19 @@
 void	ft_print(t_pile **pile)
 {
 	t_pile	*tmp;
-	int	*i;
 
 	ft_putendl("Pile (Tete): ");
 	tmp = *pile;
 	while (tmp)
 	{
-		i = tmp->content;
-		ft_putnbr(*i);
+		ft_putnbr(tmp->content);
 		ft_putstr(" ");
 		tmp = tmp->prev;
 	}
 	ft_putendl("");
 }
 
-int		ft_isempty(t_pile const **pile)
+int		ft_isempty(t_pile **pile)
 {
 	return (!ft_plsize((t_pile **)pile) ? 0 : 1);
 }
@@ -39,7 +37,6 @@ void	ft_swap(t_pile **pile)
 	t_pile *first;
 	t_pile	*second;
 	int		tmp;
-	int		i;
 
 	if (ft_plsize(pile) < 2)
 		return ;
@@ -54,13 +51,13 @@ void	ft_push(t_pile **pile, t_pile *elem)
 {
 	t_pile	*tmp;
 
-	tmp = *alst;
+	tmp = *pile;
 	if (!tmp)
-		*alst = new;
+		*pile = elem;
 	else
 	{
-		new->prev = tmp;
-		*alst = new;
+		elem->prev = tmp;
+		*pile = elem;
 	}
 }
 
@@ -78,6 +75,6 @@ t_pile	*ft_pop(t_pile **pile)
 		*pile = NULL;
 		return (tmp);
 	}
-	*pile = tmp->next;
+	*pile = tmp->prev;
 	return (tmp);
 }
