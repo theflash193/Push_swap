@@ -6,11 +6,23 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 10:49:57 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 15:10:43 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+static void	parsing(char **argv, t_pile **pile)
+{
+	int i;
+
+	i = 0;
+	while (argv[i])
+	{
+		ft_pilepushback(pile, ft_pl_elem(ft_atoi(argv[i])));
+		i++;
+	}
+}
 
 void	pushswap(char **argv)
 {

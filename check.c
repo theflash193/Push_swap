@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:15:25 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 14:20:21 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 14:30:43 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	check(char **argv)
 		return (1);
 	while (argv[i])
 	{
-		ft_putendl(argv[i]);
 		if (!check_digit(argv[i]))
 			return (1);
 		l = ft_atol(argv[i]);

@@ -6,15 +6,49 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 10:29:29 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/19 15:08:54 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	algo(t_pile *a, t_pile *b, t_list *list_operator)
+static	int	ft_min(t_pile *pile, int size, int min)
 {
-	(void)a;
-	(void)b;
+	t_pile	*tmp;
+	int		min2;
+	int		iter;
+	int		i;
+
+	tmp = *pile->prev;
+	i = 1;
+	min2 = min;
+	while (tmp) 
+	{
+		if (tmp->content < iter)
+		{
+			min2 = tmp->content;
+			iter = i;
+		}
+		i++;
+		tmp = tmp->prev;
+	}
+	return (min == min2 ? 0 : iter);
+}
+
+void		algo(t_pile *a, t_pile *b, t_list *list_operator)
+{
+	int	size;
+	int	iter;
+
 	(void)list_operator;
+	while (size = ft_plsize(&a))
+	{
+		iter = ft_min(a, size, a->content);
+		while (iter--)
+			ra(a, list_operator);
+		pb(&a, &b, list_operator);
+	}
+	size = ft_plsize(&b);
+	while (size--)
+		pa(&b, &a, list_operator);
 }
