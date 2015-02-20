@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:18:26 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 10:43:26 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/20 14:11:22 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_print(t_pile **pile)
 {
 	t_pile	*tmp;
 
-	ft_putendl("Pile (Tete): ");
+	ft_putstr("Pile (Tete): ");
 	tmp = *pile;
 	while (tmp)
 	{
@@ -29,7 +29,7 @@ void	ft_print(t_pile **pile)
 
 int		ft_isempty(t_pile **pile)
 {
-	return (!ft_plsize((t_pile **)pile) ? 0 : 1);
+	return (ft_plsize((t_pile **)pile) == 0 ? 1 : 0);
 }
 
 void	ft_swap(t_pile **pile)

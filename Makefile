@@ -22,8 +22,8 @@ LIB = ./libft/libft.a
 
 FLAGS = -Wall -Werror -Wextra -g
 
-SRC = main.c algo.c operator.c operator2.c operator3.c tool.c tool2.c \
-	tool3.c pushswap.c check.c
+SRC = main.c algo.c operator.c tool.c tool2.c \
+	tool3.c pushswap.c check.c tool4.c
 
 OBJ = $(SRC:.c=.o)
 

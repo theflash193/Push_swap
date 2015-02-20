@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 15:25:43 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/20 15:10:58 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	int	ft_min(t_pile *pile, int min)
 	return (min == min2 ? 0 : iter);
 }
 
-void		algo(t_pile *a, t_pile *b, t_list *list_operator)
+void		algo(t_pile *a, t_pile *b, t_op *list_operator)
 {
 	int	size;
 	int	iter;

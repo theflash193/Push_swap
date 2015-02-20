@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 15:29:44 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/20 15:14:30 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	parsing(char **argv, t_pile **pile)
 {
 	int i;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		ft_pilepushback(pile, ft_pl_elem(ft_atoi(argv[i])));
@@ -28,13 +28,16 @@ void	pushswap(char **argv)
 {
 	t_pile	*a;
 	t_pile	*b;
-	t_list	*list_operator;
+	t_op	*list_operator;
 
 	a = NULL;
 	b = NULL;
 	list_operator = NULL;
-	(void)list_operator;
 	(void)b;
+	(void)list_operator;
 	parsing(argv, &a);
+	a = ft_push(&a, ft_pl_elem(4));
 	// algo(a, b, list_operator);
+	// ft_putstr("algo fini a: ");
+	// ft_print(&a);
 }
