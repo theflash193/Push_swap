@@ -26,17 +26,13 @@ static void	parsing(char **argv, t_pile **pile)
 
 void	pushswap(char **argv)
 {
-	t_pile	*a;
-	t_pile	*b;
-	t_op	*list_operator;
+	t_env e;
 
-	a = NULL;
-	b = NULL;
-	list_operator = NULL;
-	(void)b;
-	(void)list_operator;
-	parsing(argv, &a);
-	a = ft_push(&a, ft_pl_elem(4));
+	e.a = NULL;
+	e.b = NULL;
+	e.list_operator = NULL;
+	parsing(argv, e);
+	ft_push(&a, ft_pl_elem(4));
 	// algo(a, b, list_operator);
 	// ft_putstr("algo fini a: ");
 	// ft_print(&a);

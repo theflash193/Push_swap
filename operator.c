@@ -12,20 +12,20 @@
 
 #include "pushswap.h"
 
-void	pa(t_pile **a, t_pile **b, t_op *list_operator)
+void	pa(t_env *e)
 {
-	(void)list_operator;
-	ft_push(a, ft_pop(b));
+	ft_opback(e->&list_operator, ft_opnew("pa"));
+	ft_push(e->&a, ft_pop(e->&b));
 }
 
-void	pb(t_pile *b, t_pile *a, t_op *list_operator)
+void	pb(t_env *e)
 {
-	(void)list_operator;
-	ft_push(&b, ft_pop(&a));
+	ft_opback(e->&list_operator, ft_opnew("pa"));
+	ft_push(e->&b, ft_pop(e->&a));
 }
 
-t_pile	*ra(t_pile **a, t_op *list_operator)
+void	*ra(t_env *e)
 {
-	(void)list_operator;
-	return (ft_reverse(*a));
+	ft_opback(e->&list_operator, ft_opnew("pa"));
+	e = ft_reverse(e->a);
 }
