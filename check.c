@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:15:25 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/19 14:30:43 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/23 15:21:47 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	check(char **argv)
 		if (!check_digit(argv[i]))
 			return (1);
 		l = ft_atol(argv[i]);
-		if (!(ret = (l > -32767 && l < +32767)))
+		if (!(ret = (l >= -2147483648 && l <= 2147483647)))
 			return (1);
 		i++;
 	}

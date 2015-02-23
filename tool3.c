@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:18:39 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/20 15:06:22 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/23 11:22:14 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,27 @@ size_t		ft_plsize(t_pile **pile)
 	return (i);
 }
 
-t_pile	*ft_reverse(t_pile *pile)
+t_pile	*ft_reverse(t_pile **pile)
 {
 	t_pile	*ret;
 	t_pile	*first;
 	t_pile	*second;
 	t_pile	*last;
 
-	if (ft_isempty(&pile) || ft_plsize(&pile) == 1)
-		return (pile);
-	first = pile;
+	// ft_putendl("test reverse");
+	if (ft_isempty(pile) || ft_plsize(pile) == 1)
+		return (*pile);
+	first = *pile;
 	second = first->prev;
-	last = pile;
+	last = *pile;
 	while (last->prev)
 		last = last->prev;
-	last->prev = pile;
+	last->prev = *pile;
 	first->prev = NULL;
-	pile = second;
-	ret = pile;
+	*pile = second;
+	ret = *pile;
+	// ft_putstr("a :");
+	// ft_print(pile);
 	return (ret);
 }
 

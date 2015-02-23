@@ -43,11 +43,11 @@ void	ft_opprint(t_op *op)
 {
 	t_op	*tmp;
 
-	ft_putstr("Pile (Tete): ");
 	tmp = op;
 	while (tmp)
 	{
-		ft_putendl(tmp->content);
+		ft_putstr(tmp->content);
+		ft_putstr(" ");
 		tmp = tmp->next;
 	}
 	ft_putendl("");

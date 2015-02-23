@@ -6,38 +6,38 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/23 10:20:29 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/23 15:26:09 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+static void	envdel(t_env *e)
+{
+	ft_piledel(&(e->a));
+	ft_opdel(&(e->list_operator));
+}
 
-static void	parsing(char **argv, t_pile **pile)
+static void	parsing(char **argv, t_env *e)
 {
 	int i;
 
 	i = 1;
 	while (argv[i])
 	{
-		ft_pilepushback(pile, ft_pl_elem(ft_atoi(argv[i])));
+		ft_pilepushback(&(e->a), ft_pl_elem(ft_atoi(argv[i])));
 		i++;
 	}
 }
 
 void	pushswap(char **argv)
 {
-	t_pile	*a;
-	t_pile	*b;
-	t_op	*list_operator;
+	t_env e;
 
-	a = NULL;
-	b = NULL;
-	list_operator = NULL;
-	(void)b;
-	(void)list_operator;
-	parsing(argv, &a);
-	a = ft_push(&a, ft_pl_elem(4));
-	// algo(a, b, list_operator);
-	// ft_putstr("algo fini a: ");
-	// ft_print(&a);
+	e.a = NULL;
+	e.b = NULL;
+	e.list_operator = NULL;
+	parsing(argv, &e);
+	algo(&e);
+	ft_opprint(e.list_operator);
+	envdel(&e);
 }

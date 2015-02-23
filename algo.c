@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/20 15:10:58 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/23 15:06:32 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static	int	ft_min(t_pile *pile, int min)
 	tmp = pile->prev;
 	i = 1;
 	min2 = min;
-	while (tmp) 
+	while (tmp)
 	{
-		if (tmp->content < iter)
+		if (tmp->content < min2)
 		{
 			min2 = tmp->content;
 			iter = i;
@@ -35,20 +35,22 @@ static	int	ft_min(t_pile *pile, int min)
 	return (min == min2 ? 0 : iter);
 }
 
-void		algo(t_pile *a, t_pile *b, t_op *list_operator)
+void		algo(t_env *e)
 {
 	int	size;
 	int	iter;
 
-	(void)list_operator;
-	while (ft_isempty(&a))
+	while (!ft_isempty(&(e->a)))
 	{
-		iter = ft_min(a, a->content);
-		while (iter--)
-			ra(&a, list_operator);
-		pb(a, b, list_operator);
+		iter = ft_min(e->a, e->a->content);
+		while (iter)
+		{
+			ra(e);
+			iter--;
+		}
+		pb(e);
 	}
-	size = ft_plsize(&b);
+	size = ft_plsize(&(e->b));
 	while (size--)
-		pa(&b, &a, list_operator);
+		pa(e);
 }
