@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tool5.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/17 13:17:22 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 13:24:06 by grass-kw         ###   ########.fr       */
+/*   Created: 2015/02/24 13:04:45 by grass-kw          #+#    #+#             */
+/*   Updated: 2015/02/24 13:22:52 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int 		main(int argc, char **argv)
+int	iscroissant(int a, int b)
 {
-	if (argc == 1)
+	return (a < b ? 1 : 0);
+}
+
+int isdecroissant(int a, int b)
+{
+	return (a > b ? 1 : 0);
+}
+
+int	ft_pltest(t_pile **pile, int (*f)(int , int))
+{
+	t_pile	*tmp;
+
+	tmp = *pile;
+	while (tmp->prev)
 	{
-		ft_putendl("");
-		return (0);
+		if (f(tmp->content, tmp->prev->content))
+			return (0);
+		tmp = tmp->prev;
 	}
-	if (check(argv))
-	{
-		ft_error();
-		return (0);
-	}
-	pushswap(argv);
-	return (0);
+	return (1);
 }

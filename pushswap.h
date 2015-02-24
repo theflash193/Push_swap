@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 12:00:44 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 14:04:42 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_pile				*ft_pop(t_pile **pile);
 */
 size_t				ft_plsize(t_pile **pile);
 t_pile				*ft_reverse(t_pile **pile);
+void				ft_rreverse(t_pile **pile);
 int					ispositif(char	*s1, char *s2);
 
 /*
@@ -66,6 +67,13 @@ void				ft_opback(t_op **alst, t_op *elem);
 void				ft_opprint(t_op *op);
 void				ft_opdel(t_op **alst);
 void				ft_opdelone(t_op **alst);
+
+/*
+*** tool5.c
+*/
+int					iscroissant(int a, int b);
+int					isdecroissant(int a, int b);
+int					ft_pltest(t_pile **pile, int (*f)(int , int));
 
 /*
 *** operator.c
@@ -90,6 +98,5 @@ long				ft_atol(const char *str);
 *** algo.c
 */
 void				tri_selection(t_env *e);
-int					iscroissant(t_pile **pile)
-
+int					test_swap(t_env *e);
 #endif

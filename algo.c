@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 12:03:01 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 14:05:48 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,6 @@ static	int	ft_min(t_pile *pile, int min)
 	return (min == min2 ? 0 : iter);
 }
 
-int			iscroissant(t_pile **pile)
-{
-	t_pile *tmp;
-
-	tmp = pile;
-	while (tmp->prev)
-	{
-		if (tmp->content > tmp->prev->content)
-			return (0);
-		tmp = tmp->prev;
-	}
-	return (1);
-}
-
 void		tri_selection(t_env *e)
 {
 	int	size;
@@ -67,4 +53,18 @@ void		tri_selection(t_env *e)
 	size = ft_plsize(&(e->b));
 	while (size--)
 		pa(e);
+}
+
+int			test_swap(t_env *e)
+{
+	t_pile	*test;
+
+	test = ft_reverse(&(e->a));
+	ft_print(&test);
+	if (ft_pltest(&test, isdecroissant))
+	{
+		ft_putendl("on est la");
+		return (1);
+	}
+	return (0);
 }

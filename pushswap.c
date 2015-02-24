@@ -6,11 +6,12 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 12:37:44 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 14:09:13 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
 static void	envdel(t_env *e)
 {
 	ft_piledel(&(e->a));
@@ -31,16 +32,19 @@ static void	parsing(char **argv, t_env *e)
 
 static void	algo(t_env *e)
 {
-	if (iscroissant(&(e->a)))
+	if (ft_pltest(&(e->a), isdecroissant))
 		return ;
 	else if (test_swap(e))
-		sa(e);
-	else if (test_rotate(e))
-		ra(e);
-	else if (test_rrotate(e))
-		rra(e);
+		return ;
+	// else if (test_rotate(e))
+	// 	return ;
+	// else if (test_rrotate(e))
+	// 	return ;
 	else
+	{
+		ft_print(&(e->a));
 		tri_selection(e);
+	}
 }
 
 void	pushswap(char **argv)
@@ -50,8 +54,8 @@ void	pushswap(char **argv)
 	e.a = NULL;
 	e.b = NULL;
 	e.list_operator = NULL;
-	parsing(argv, e);
-	tri_selection(&e);
+	parsing(argv, &e);
+	algo(&e);
 	ft_opprint(e.list_operator);
 	envdel(&e);
 }
