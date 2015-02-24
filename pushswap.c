@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 15:15:14 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 18:31:01 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static void	algo(t_env *e)
 {
 	if (ft_pltest(&(e->a), isdecroissant))
 		return ;
+	else if (ft_plsize(&(e->a)) == 3 && ft_pltest(&(e->a), iscroissant))
+		{
+			tri_inverse(e);
+			return ;
+		}
 	else if (test_swap(e))
 		return ;
 	else if (test_rotate(e))

@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 15:21:46 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 18:27:06 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,19 @@ int			test_swap(t_env *e)
 	}
 	ft_swap(&(e->a));
 	return (0);
+}
+
+int			tri_inverse(t_env *e)
+{
+	t_pile	*tmp;
+
+	(void)tmp;
+	tmp = ft_reverse(&(e->a));
+	ft_swap(&(e->a));
+	ft_opback(&(e->list_operator), ft_opnew("ra"));
+	ft_opback(&(e->list_operator), ft_opnew("sa"));
+	ft_print(&(e->a));
+	 return (1);
 }
 
 int			test_rotate(t_env *e)
