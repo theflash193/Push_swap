@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/23 11:17:30 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 12:00:44 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,13 @@ void				pushswap(char **argv);
 *** check.c
 */
 int 				check(char **argv);
-void				ft_error();
+void				ft_error(void);
 long				ft_atol(const char *str);
 
 /*
 *** algo.c
 */
-void				algo(t_env *e);
+void				tri_selection(t_env *e);
+int					iscroissant(t_pile **pile)
 
 #endif

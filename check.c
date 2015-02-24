@@ -6,18 +6,18 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:15:25 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/23 15:21:47 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/23 15:33:08 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	ft_error()
+void		ft_error(void)
 {
 	ft_putendl("Error");
 }
 
-long	ft_atol(const char *str)
+long		ft_atol(const char *str)
 {
 	unsigned long	result;
 	int				i;
@@ -74,7 +74,7 @@ static	int	doublon(char **av)
 	return (0);
 }
 
-int	check(char **argv)
+int			check(char **argv)
 {
 	int		i;
 	long 	l;

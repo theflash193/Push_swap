@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/23 15:26:09 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 12:37:44 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,20 @@ static void	parsing(char **argv, t_env *e)
 	}
 }
 
+static void	algo(t_env *e)
+{
+	if (iscroissant(&(e->a)))
+		return ;
+	else if (test_swap(e))
+		sa(e);
+	else if (test_rotate(e))
+		ra(e);
+	else if (test_rrotate(e))
+		rra(e);
+	else
+		tri_selection(e);
+}
+
 void	pushswap(char **argv)
 {
 	t_env e;
@@ -36,8 +50,8 @@ void	pushswap(char **argv)
 	e.a = NULL;
 	e.b = NULL;
 	e.list_operator = NULL;
-	parsing(argv, &e);
-	algo(&e);
+	parsing(argv, e);
+	tri_selection(&e);
 	ft_opprint(e.list_operator);
 	envdel(&e);
 }
