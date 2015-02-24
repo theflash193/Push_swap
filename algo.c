@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 14:05:48 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/24 15:21:46 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,29 @@ void		tri_selection(t_env *e)
 
 int			test_swap(t_env *e)
 {
-	t_pile	*test;
-
-	test = ft_reverse(&(e->a));
-	ft_print(&test);
-	if (ft_pltest(&test, isdecroissant))
+	ft_swap(&(e->a));
+	if (ft_pltest(&(e->a), isdecroissant))
 	{
-		ft_putendl("on est la");
+		ft_opback(&(e->list_operator), ft_opnew("sa"));
+		ft_print(&(e->a));
 		return (1);
 	}
+	ft_swap(&(e->a));
+	return (0);
+}
+
+int			test_rotate(t_env *e)
+{
+	t_pile	*tmp;
+
+	ft_print(&(e->a));
+	tmp = ft_reverse(&(e->a));
+	if (ft_pltest(&tmp, isdecroissant))
+	{
+		ft_opback(&(e->list_operator), ft_opnew("ra"));
+		ft_print(&(tmp));
+		return (1);
+	}
+	ft_print(&(tmp));
 	return (0);
 }
