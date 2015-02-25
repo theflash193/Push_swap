@@ -74,6 +74,7 @@ void				ft_opdelone(t_op **alst);
 int					iscroissant(int a, int b);
 int					isdecroissant(int a, int b);
 int					ft_pltest(t_pile **pile, int (*f)(int , int));
+t_pile				*ft_plcpy(t_pile *pile);
 
 /*
 *** operator.c

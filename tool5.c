@@ -35,3 +35,18 @@ int	ft_pltest(t_pile **pile, int (*f)(int , int))
 	}
 	return (1);
 }
+
+t_pile	*ft_plcpy(t_pile *pile)
+{
+	t_pile	*ret;
+	t_pile	*tmp;
+
+	ret = NULL;
+	tmp = pile;
+	while (tmp)
+	{
+		pilepushback(&ret, tmp);
+		tmp = tmp->prev;
+	}
+	return (ret);
+}
