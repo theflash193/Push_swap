@@ -27,15 +27,14 @@ size_t		ft_plsize(t_pile **pile)
 	return (i);
 }
 
-t_pile	*ft_reverse(t_pile **pile)
+void	ft_reverse(t_pile **pile)
 {
-	t_pile	*ret;
 	t_pile	*first;
 	t_pile	*second;
 	t_pile	*last;
 
 	if (ft_isempty(pile) || ft_plsize(pile) == 1)
-		return (*pile);
+		return ;
 	first = *pile;
 	second = first->prev;
 	last = *pile;
@@ -44,8 +43,6 @@ t_pile	*ft_reverse(t_pile **pile)
 	last->prev = *pile;
 	first->prev = NULL;
 	*pile = second;
-	ret = *pile;
-	return (ret);
 }
 
 void	ft_rreverse(t_pile **pile)

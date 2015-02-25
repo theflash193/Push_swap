@@ -30,37 +30,41 @@ static void	parsing(char **argv, t_env *e)
 	}
 }
 
-static void	algo(t_env *e)
-{
-	if (ft_pltest(&(e->a), isdecroissant))
-		return ;
-	else if (ft_plsize(&(e->a)) == 3 && ft_pltest(&(e->a), iscroissant))
-		{
-			tri_inverse(e);
-			return ;
-		}
-	else if (test_swap(e))
-		return ;
-	else if (test_rotate(e))
-		return ;
-	// else if (test_rrotate(e))
-	// 	return ;
-	else
-	{
-		// ft_print(&(e->a));
-		tri_selection(e);
-	}
-}
+// static void	algo(t_env *e)
+// {
+// 	if (ft_pltest(&(e->a), isdecroissant))
+// 		return ;
+// 	// else if (ft_plsize(&(e->a)) == 3 && ft_pltest(&(e->a), iscroissant))
+// 	// 	{
+// 	// 		tri_inverse(e);
+// 	// 		return ;
+// 	// 	}
+// 	// else if (test_swap(e))
+// 	// 	return ;
+// 	// else if (test_rotate(e))
+// 	// 	return ;
+// 	// else if (test_rrotate(e))
+// 	// 	return ;
+// 	else
+// 	{
+// 		// ft_print(&(e->a));
+// 		tri_selection(e);
+// 	}
+// }
 
 void	pushswap(char **argv)
 {
 	t_env e;
+	t_pile *tmp;
 
 	e.a = NULL;
 	e.b = NULL;
 	e.list_operator = NULL;
 	parsing(argv, &e);
-	algo(&e);
-	ft_opprint(e.list_operator);
+	tmp = ft_plcpy(e.a);
+	ft_print(&tmp);
+	ft_piledel(&tmp);
+	// algo(&e);
+	// ft_opprint(e.list_operator);
 	envdel(&e);
 }

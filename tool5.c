@@ -45,7 +45,7 @@ t_pile	*ft_plcpy(t_pile *pile)
 	tmp = pile;
 	while (tmp)
 	{
-		pilepushback(&ret, tmp);
+		ft_pilepushback(&ret, tmp);
 		tmp = tmp->prev;
 	}
 	return (ret);

@@ -27,5 +27,5 @@ void	pb(t_env *e)
 void	ra(t_env *e)
 {
 	ft_opback(&(e->list_operator), ft_opnew("ra"));
-	e->a = ft_reverse(&(e->a));
+	ft_reverse(&(e->a));
 }

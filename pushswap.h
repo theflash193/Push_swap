@@ -55,7 +55,7 @@ t_pile				*ft_pop(t_pile **pile);
 *** tool3.c
 */
 size_t				ft_plsize(t_pile **pile);
-t_pile				*ft_reverse(t_pile **pile);
+void				ft_reverse(t_pile **pile);
 void				ft_rreverse(t_pile **pile);
 int					ispositif(char	*s1, char *s2);
 
