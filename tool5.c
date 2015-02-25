@@ -41,11 +41,12 @@ t_pile	*ft_plcpy(t_pile *pile)
 	t_pile	*ret;
 	t_pile	*tmp;
 
-	ret = NULL;
 	tmp = pile;
+	ret = ft_pl_elem(tmp->content);
+	tmp = tmp->prev;
 	while (tmp)
 	{
-		ft_pilepushback(&ret, tmp);
+		ft_pilepushback(&ret, ft_pl_elem(tmp->content));
 		tmp = tmp->prev;
 	}
 	return (ret);

@@ -49,7 +49,7 @@ void	ft_pilepushback(t_pile **pile, t_pile *elem)
 	t_pile	*tmp;
 
 	tmp = *pile;
-	if (!*pile)
+	if (*pile == NULL)
 		*pile = elem;
 	else
 	{

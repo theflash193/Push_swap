@@ -55,15 +55,11 @@ static void	parsing(char **argv, t_env *e)
 void	pushswap(char **argv)
 {
 	t_env e;
-	t_pile *tmp;
 
 	e.a = NULL;
 	e.b = NULL;
 	e.list_operator = NULL;
 	parsing(argv, &e);
-	tmp = ft_plcpy(e.a);
-	ft_print(&tmp);
-	ft_piledel(&tmp);
 	// algo(&e);
 	// ft_opprint(e.list_operator);
 	envdel(&e);
