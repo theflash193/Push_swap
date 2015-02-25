@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:58:14 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/25 11:47:02 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/25 14:25:58 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ static void	algo(t_env *e)
 		return ;
 	else if (test_last_inverse(e))
 		return ;
-	// else if (test_rrotate(e))
-	// 	return ;
 	else
 	{
-		// ft_print(&(e->a));
+		ft_print(&(e->a));
 		tri_selection(e);
 	}
 }
