@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 18:28:11 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/25 11:57:49 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ long				ft_atol(const char *str);
 */
 void				tri_selection(t_env *e);
 int					test_swap(t_env *e);
-int					test_rotate(t_env *e);
 int					tri_inverse(t_env *e);
+int					test_last_inverse(t_env *e);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:14:56 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/25 11:39:23 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/25 11:56:11 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int			test_swap(t_env *e)
 	if (ft_pltest(&tmp, isdecroissant))
 	{
 		ft_opback(&(e->list_operator), ft_opnew("sa"));
+		ft_piledel(&tmp);
 		return (1);
 	}
 	ft_piledel(&tmp);
@@ -80,19 +81,27 @@ int			tri_inverse(t_env *e)
 	 return (1);
 }
 
-int			test_rotate(t_env *e)
+int			test_last_inverse(t_env *e)
 {
-	(void)e;
-	// t_pile	*tmp;
+	t_pile	*tmp;
 
-	// ft_print(&(e->a));
-	// tmp = ft_reverse(&(e->a));
-	// if (ft_pltest(&tmp, isdecroissant))
-	// {
-	// 	ft_opback(&(e->list_operator), ft_opnew("ra"));
-	// 	ft_print(&(tmp));
-	// 	return (1);
-	// }
-	// ft_print(&(tmp));
+	tmp = ft_plcpy(e->a);
+	ft_rreverse(&tmp);
+	ft_rreverse(&tmp);
+	ft_swap(&tmp);
+	ft_reverse(&tmp);
+	ft_reverse(&tmp);
+	if (ft_pltest(&tmp, isdecroissant))
+	{
+		ft_opback(&(e->list_operator), ft_opnew("rra"));
+		ft_opback(&(e->list_operator), ft_opnew("rra"));
+		ft_opback(&(e->list_operator), ft_opnew("sa"));
+		ft_opback(&(e->list_operator), ft_opnew("ra"));
+		ft_opback(&(e->list_operator), ft_opnew("ra"));
+		ft_print(&(tmp));
+		ft_piledel(&tmp);
+		return (1);
+	}
+	ft_piledel(&tmp);
 	return (0);
 }

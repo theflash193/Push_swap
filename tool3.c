@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/17 13:18:39 by grass-kw          #+#    #+#             */
-/*   Updated: 2015/02/24 12:57:06 by grass-kw         ###   ########.fr       */
+/*   Updated: 2015/02/25 12:55:55 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,20 @@ void	ft_rreverse(t_pile **pile)
 {
 	t_pile	*before_last;
 	t_pile	*last;
+	t_pile	*first;
 
 	if (ft_isempty(pile) || ft_plsize(pile) == 1)
 		return ;
 	last = *pile;
-	while (last)
-	{
-		before_last = last;
+	before_last = last;
+	first = *pile;
+	while (before_last->prev->prev)
+		before_last = before_last->prev;
+	while (last->prev)
 		last = last->prev;
-	}
-	before_last->prev = NULL;
-	last->prev = (*pile)->prev;
-	last = *pile;
+	last->prev = first;
 	*pile = last;
+	before_last->prev = NULL;
 }
 
 int		ispositif(char	*s1, char *s2)
